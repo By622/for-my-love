@@ -236,7 +236,7 @@ document.getElementById('downloadBtn').addEventListener('click', function() {
         document.body.insertBefore(bgLayer, document.body.firstChild);
 
         console.error('下載失敗:', err);
-        alert('下載失敗，請截圖保存 😅');
+        alert('下載失敗，cap圖保存或者問我');
         btn.textContent = originalText;
         btn.disabled = false;
     });
