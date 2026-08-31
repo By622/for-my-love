@@ -118,6 +118,41 @@ body {
     font-style: italic;
 }
 
+/* === 日期計算器 === */
+.date-counter {
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    padding: 0 0 5px 0;
+    margin-bottom: 0;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 1.5s ease, transform 1.5s ease;
+    pointer-events: none;
+    line-height: 1.4;
+}
+
+.date-counter.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.counter-label {
+    color: #b8a08c;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.counter-number {
+    color: #5a4a3a;
+    font-size: 2.4rem;
+    font-weight: bold;
+    margin: 0 6px;
+    font-family: 'Georgia', 'Times New Roman', serif;
+}
+
 /* === 圖片包裝 === */
 .image-wrapper {
     width: 70%;
