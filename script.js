@@ -193,10 +193,17 @@ document.getElementById('downloadBtn').addEventListener('click', function() {
 
     // 取得要下載的內容（排除下載按鈕區塊）
     const downloadSection = document.getElementById('downloadSection');
+    const bgLayer = document.getElementById('bgLayer');
     const container = document.querySelector('.container');
 
     // 暫時隱藏下載按鈕區塊
     downloadSection.style.display = 'none';
+
+    // 將背景圖層移到 container 內部（下載完成後復原）
+    const containerParent = container.parentNode;
+    const bgLayerParent = bgLayer.parentNode;
+    containerParent.insertBefore(bgLayer, container);
+    container.insertBefore(bgLayer, container.firstChild);
 
     html2canvas(container, {
         scale: 2,
@@ -212,6 +219,9 @@ document.getElementById('downloadBtn').addEventListener('click', function() {
         // 恢復顯示下載按鈕區塊
         downloadSection.style.display = '';
 
+        // 將背景圖層移回原來位置
+        document.body.insertBefore(bgLayer, document.body.firstChild);
+
         const link = document.createElement('a');
         link.download = '給傻豬的生日禮物兌換券.png';
         link.href = canvas.toDataURL('image/png');
@@ -221,8 +231,12 @@ document.getElementById('downloadBtn').addEventListener('click', function() {
     }).catch(err => {
         // 發生錯誤時也要恢復顯示
         downloadSection.style.display = '';
+
+        // 將背景圖層移回原來位置
+        document.body.insertBefore(bgLayer, document.body.firstChild);
+
         console.error('下載失敗:', err);
-        alert('下載失敗，cap圖保存或者問我');
+        alert('下載失敗，請截圖保存 😅');
         btn.textContent = originalText;
         btn.disabled = false;
     });
