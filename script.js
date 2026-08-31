@@ -174,19 +174,27 @@ document.getElementById('downloadBtn').addEventListener('click', function() {
     btn.textContent = '⏳ 生成中...';
     btn.disabled = true;
 
-    // 暫時把背景圖層顯示出來（html2canvas 默認會捕捉）
-    html2canvas(document.body, {
-        scale: 2, // 高清輸出
+    // 取得要下載的內容（排除下載按鈕區塊）
+    const downloadSection = document.getElementById('downloadSection');
+    const container = document.querySelector('.container');
+
+    // 暫時隱藏下載按鈕區塊
+    downloadSection.style.display = 'none';
+
+    html2canvas(container, {
+        scale: 2,
         useCORS: true,
         allowTaint: true,
         backgroundColor: '#faf6f0',
         logging: false,
-        // 確保背景圖案被捕捉
-        onclone: function(clonedDoc) {
-            // 確保所有圖片都載入完成
-        }
+        width: container.scrollWidth,
+        height: container.scrollHeight,
+        windowWidth: container.scrollWidth,
+        windowHeight: container.scrollHeight,
     }).then(canvas => {
-        // 創建下載連結
+        // 恢復顯示下載按鈕區塊
+        downloadSection.style.display = '';
+
         const link = document.createElement('a');
         link.download = '給傻豬的生日禮物兌換券.png';
         link.href = canvas.toDataURL('image/png');
@@ -194,6 +202,8 @@ document.getElementById('downloadBtn').addEventListener('click', function() {
         btn.textContent = originalText;
         btn.disabled = false;
     }).catch(err => {
+        // 發生錯誤時也要恢復顯示
+        downloadSection.style.display = '';
         console.error('下載失敗:', err);
         alert('下載失敗，請截圖保存 😅');
         btn.textContent = originalText;
