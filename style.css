@@ -170,6 +170,63 @@ body {
     }
 }
 
+/* === 下載按鈕區塊（一般版） === */
+.download-section {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 30px;
+    opacity: 0;
+    transition: opacity 1s ease;
+    pointer-events: none;
+}
+
+.download-section.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.download-btn {
+    background: #5a4a3a;
+    color: #faf6f0;
+    border: 2px solid #5a4a3a;
+    padding: 12px 32px;
+    font-size: 1.1rem;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    letter-spacing: 2px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.download-btn:hover {
+    background: #4a3d30;
+    border-color: #4a3d30;
+    transform: scale(1.03);
+}
+
+.download-btn:active {
+    transform: scale(0.97);
+}
+
+.download-btn::-moz-focus-inner {
+    border: 0;
+}
+
+.download-note {
+    color: #5a4a3a;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+}
+
 /* === 手機優化 === */
 @media (max-width: 600px) {
     body {
@@ -198,7 +255,7 @@ body {
         font-size: 1.05rem;
     }
 
-    /* === 下載按鈕區塊 === */
+    /* === 下載按鈕區塊（手機版） === */
     .download-section {
         width: 100%;
         max-width: 500px;
@@ -220,7 +277,7 @@ body {
     .download-btn {
         background: #5a4a3a;
         color: #faf6f0;
-        border: none;
+        border: 2px solid #5a4a3a;
         padding: 12px 32px;
         font-size: 1.1rem;
         font-family: 'Georgia', 'Times New Roman', serif;
@@ -228,10 +285,16 @@ body {
         cursor: pointer;
         transition: background 0.3s ease, transform 0.2s ease;
         letter-spacing: 2px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        outline: none;
+        box-shadow: none;
     }
 
     .download-btn:hover {
         background: #4a3d30;
+        border-color: #4a3d30;
         transform: scale(1.03);
     }
 
@@ -239,8 +302,12 @@ body {
         transform: scale(0.97);
     }
 
+    .download-btn::-moz-focus-inner {
+        border: 0;
+    }
+
     .download-note {
-        color: #b8a08c;
+        color: #5a4a3a;
         font-size: 0.95rem;
         letter-spacing: 1px;
     }
