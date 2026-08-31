@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>給親愛的你</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+</head>
+<body>
+
+    <!-- ===== 背景圖層（放置散佈的圖案） ===== -->
+    <div class="bg-layer" id="bgLayer"></div>
+
+    <!-- ===== 主容器 ===== -->
+    <div class="container">
+
+        <!-- 文字區域 -->
+        <div class="text-area" id="textArea">
+            <h1>To 傻豬</h1>
+
+            <p class="greeting">
+                生日快樂呀呀呀，最得意嘅
+                <span class="strikethrough">傻豬</span>
+                女朋友，祝你日日都咁開心 (•̀⌄•́)
+            </p>
+
+            <p>
+                我諗咗好耐要送咩俾你，月頭就開始諗啦，但係你又話唔急，但係我真係完全諗唔到TT。<br />
+                特別係個水樽，你話想要PC狗嘅，上網又冇幾款啱嘅，跟住我之前同frd出去旺角仲特登去行咗啲買周邊嘅鋪，點知都係一個都冇TT。<br />
+                最後冇辦法都係問咗你要邊款，不過而家買咗啦，淘寶話要9月2號先到，所以唯有之後送返俾你啦。
+            </p>
+
+            <p>
+                個puzzle就係個日同frd係旺角路過間puzzle鋪見到嘅，感覺幾好就買咗，佢仲有兩件衫㗎！！
+            </p>
+
+            <p>
+                跟住我就諗仲有咩可以送呢，最後絞盡腦汁都係諗唔到，唯有送隻我俾你啦（第一次燙啲邊整得有啲唔好，不過冇穿冇爛應該都ok掛？原本仲有個喵喵㗎，但係個商家比少咗拼豆俾我，搞到我拼唔到，激氣！！！），同埋仲有一隻附贈品迪莫。
+            </p>
+
+            <p>
+                啲禮物對比返你上次生日送俾我嘅少好多，希望你唔好嫌少啦(இωஇ )。如果你想要其他野我再補返俾你。
+            </p>
+
+            <p>
+                跟住我又想整啲特別啲嘅野俾你，就整咗呢個website啦，我搞咗好耐㗎，希望你中意啦。
+            </p>
+
+            <p class="signature">
+                愛你 蜜蜂a.k.a地鼠a.k.a螃蟹a.k.a暴龍
+            </p>
+        </div>
+
+        <!-- 圖片區域 -->
+        <div class="image-wrapper" id="imageWrapper">
+            <img id="mainImage" src="image1.png" alt="我們的回憶" />
+        </div>
+
+        <!-- 點擊提示 -->
+        <p class="hint" id="hint">✦ 點擊圖片 ✦</p>
+
+        <!-- 下載按鈕區塊（一開始隱藏，文字出現後才顯示） -->
+        <div class="download-section" id="downloadSection">
+            <button class="download-btn" id="downloadBtn">⬇ 下載此頁</button>
+            <span class="download-note">憑此圖在 9月2日 後兌換 PC狗水壺</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
