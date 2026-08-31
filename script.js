@@ -132,6 +132,21 @@ function scatterBgIcons() {
     }
 }
 
+// ===== 計算在一起天數 =====
+function calculateDays() {
+    const startDate = new Date(2025, 9, 13); // 2026年9月13日（月份從0開始，8=9月）
+    const today = new Date();
+
+    // 將時間設為凌晨 00:00:00，確保只比較日期
+    startDate.setHours(0, 0, 0, 0);
+    today.setHours(0, 0, 0, 0);
+
+    const diffTime = today - startDate;
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+    document.getElementById('dayCount').textContent = diffDays >= 0 ? diffDays : 0;
+}
+
 // ===== 點擊事件 =====
 imageWrapper.addEventListener('click', function() {
     if (isClicked) return;
@@ -142,6 +157,7 @@ imageWrapper.addEventListener('click', function() {
 
     setTimeout(() => {
         textArea.classList.add('visible');
+        document.getElementById('dateCounter').classList.add('visible');
         setTimeout(() => {
             document.getElementById('downloadSection').classList.add('visible');
         }, 500);
@@ -165,6 +181,7 @@ window.addEventListener('resize', function() {
 // ===== 頁面載入後執行 =====
 window.addEventListener('load', function() {
     scatterBgIcons();
+    calculateDays();
 });
 
 // ===== 下載為圖片 =====
@@ -205,7 +222,7 @@ document.getElementById('downloadBtn').addEventListener('click', function() {
         // 發生錯誤時也要恢復顯示
         downloadSection.style.display = '';
         console.error('下載失敗:', err);
-        alert('下載失敗，請截圖保存 😅');
+        alert('下載失敗，cap圖保存或者問我');
         btn.textContent = originalText;
         btn.disabled = false;
     });
