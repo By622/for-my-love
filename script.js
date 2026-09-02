@@ -134,7 +134,7 @@ function scatterBgIcons() {
 
 // ===== 計算在一起天數 =====
 function calculateDays() {
-    const startDate = new Date(2025, 9, 13); // 2026年9月13日（月份從0開始，8=9月）
+    const startDate = new Date(2025, 8, 13); // 2025年9月13日（月份從0開始，8=9月）
     const today = new Date();
 
     // 將時間設為凌晨 00:00:00，確保只比較日期
